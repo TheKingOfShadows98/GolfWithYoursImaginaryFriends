@@ -10,7 +10,9 @@ public class BolitaCC : MonoBehaviour
     [SerializeField] private Rigidbody rig;
     [SerializeField] private GameObject pivote;
     [SerializeField] private AudioSource pop;
+    public bool inFocus;
     
+
     private void Update()
     {
         Rotate();
@@ -29,12 +31,14 @@ public class BolitaCC : MonoBehaviour
     private void Rotate()
     {
         var axisX = Input.GetAxis("Mouse X");
-        //var axisY = Input.GetAxis("Mouse Y");
+        var axisY = Input.GetAxis("Mouse Y");
         transform.Rotate(new Vector3(0f, axisX,0f));
-        //pivote.transform.Rotate(new Vector3(axisY, 0f, 0f));
+        if(!inFocus)
+        pivote.transform.Rotate(new Vector3(-axisY, 0f, 0f));
     }
     public bool IsStopped()
     {
-        return rig.velocity == Vector3.zero;
+        float speed = Mathf.Abs(rig.velocity.x) + Mathf.Abs(rig.velocity.y) + Mathf.Abs(rig.velocity.z);
+        return speed < 0.5f;
     }
 }

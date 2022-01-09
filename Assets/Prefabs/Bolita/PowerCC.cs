@@ -23,14 +23,16 @@ public class PowerCC : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && bolitaCC.IsStopped())
         {
+            bolitaCC.inFocus = true;
             fuerza += Input.GetAxis("Mouse Y") * sensivity;
             fuerza = fuerza > umbralFuerza.y ? umbralFuerza.y :
                 fuerza < umbralFuerza.x ? umbralFuerza.x : fuerza;
             slider.value = fuerza;
         }
         if (Input.GetButtonUp("Fire1") && bolitaCC.IsStopped())
-        { 
-            if(fuerza > 0)
+        {
+            bolitaCC.inFocus = false;
+            if (fuerza > 0)
             bolitaCC.Disparar(fuerza);
             fuerza = 0;
             slider.value = fuerza;
