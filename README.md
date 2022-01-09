@@ -1,7 +1,7 @@
 # GolfWithYoursImaginaryFriends
 --------------------------------
 Repositorio de un juego llamado Golf With Your Imaginary Friends
-surgido como reto de jugar a **Golf With Your Friends **
+surgido como reto de jugar a ** Golf With Your Friends **
 durante una hora y replicar sus mecanicas.
 
 ## [Puedes Jugarlo en la tienda de itch.io](thekingofshadows98.itch.io/golfwithyourimaginaryfriends) 
